@@ -1,5 +1,5 @@
 # zkestate-rentalnft
-zkestate rentalnft subgraph
+ETHPrague 2023 hackaton zkEstate RentalNFT subgraph.
 ## Deployments
 
 ### Testnet
