@@ -1,0 +1,8 @@
+{
+  "optimism-goerli": {
+    "RentalNFT": {
+      "address": "0x7e80FB6Bc2e60CD13aF28F44553ee586eACDAeEa",
+      "startBlock": 10509283
+    }
+  }
+}

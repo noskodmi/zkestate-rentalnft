@@ -1,0 +1,45 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: RentalNFT
+    network: optimism-goerli
+    source:
+      address: "0x7e80FB6Bc2e60CD13aF28F44553ee586eACDAeEa"
+      abi: RentalNFT
+      startBlock: 10509283
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Approval
+        - ApprovalForAll
+        - OwnershipTransferred
+        - PropertyListingCreated
+        - TenantProposalReclaimed
+        - TenantProposalSubmitted
+        - Transfer
+        - WinnerSelected
+      abis:
+        - name: RentalNFT
+          file: ./abis/RentalNFT.json
+      eventHandlers:
+        - event: Approval(indexed address,indexed address,indexed uint256)
+          handler: handleApproval
+        - event: ApprovalForAll(indexed address,indexed address,bool)
+          handler: handleApprovalForAll
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: PropertyListingCreated(indexed uint256,indexed address,string)
+          handler: handlePropertyListingCreated
+        - event: TenantProposalReclaimed(indexed uint256,indexed uint256,indexed address)
+          handler: handleTenantProposalReclaimed
+        - event: TenantProposalSubmitted(indexed uint256,indexed uint256,indexed address,string)
+          handler: handleTenantProposalSubmitted
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+        - event: WinnerSelected(indexed uint256,indexed uint256,indexed address)
+          handler: handleWinnerSelected
+      file: ./src/rental-nft.ts
